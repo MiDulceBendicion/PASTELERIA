@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dulce Gracia | Premium Bakery</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#inicio" onclick="closeMobile()">Inicio</a></li>
+    <li><a href="#catalogo" onclick="closeMobile()">Catálogo</a></li>
+    <li><a href="#nosotros" onclick="closeMobile()">Nosotros</a></li>
+    <li><a href="#contacto" onclick="closeMobile()">Contacto</a></li>
+  </ul>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="logo">Dulce <span>Gracia</span></div>
+  <nav>
+    <ul>
+      <li><a href="#inicio" class="active">Inicio</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="menu-trigger" id="menuBtn" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-text">Dulce</div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Edición Premium · Artesanal</div>
+    <h1>Magia<br>recién<br><em>horneada.</em></h1>
+    <p class="hero-desc">Creamos experiencias dulces únicas con ingredientes artesanales y diseños exclusivos para cada ocasión especial.</p>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn-primary">
+        <span>Ver catálogo</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#nosotros" class="btn-secondary">Nuestra historia ↗</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1519340333755-56e9c1d04579?q=80&w=1400&auto=format&fit=crop" alt="Pastel artesanal">
+    <div class="hero-right-overlay"></div>
+    <div class="hero-card">
+      <div class="hero-card-icon">🏆</div>
+      <div class="hero-card-text">
+        <p>Reconocidos como</p>
+        <strong>Mejor Pastelería 2025</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stat">
+    <div class="stat-num">30+</div>
+    <div class="stat-label">Años de experiencia</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <div class="stat-num">200+</div>
+    <div class="stat-label">Recetas únicas</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <div class="stat-num">15k</div>
+    <div class="stat-label">Clientes felices</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Ingredientes naturales</div>
+  </div>
+</div>
+
+<!-- CATALOGUE -->
+<section id="catalogo" class="section-wrap">
+  <div class="catalogue-header reveal">
+    <div class="section-label" style="justify-content:center;">Nuestra selección</div>
+    <h2 class="section-title">Hecho con amor,<br>para cada momento.</h2>
+  </div>
+
+  <div class="categories reveal">
+    <button class="cat-btn active" onclick="filterProducts('all',this)">Todos</button>
+    <button class="cat-btn" onclick="filterProducts('tortas',this)">Tortas</button>
+    <button class="cat-btn" onclick="filterProducts('cupcakes',this)">Cupcakes</button>
+    <button class="cat-btn" onclick="filterProducts('cheesecake',this)">Cheesecake</button>
+    <button class="cat-btn" onclick="filterProducts('macarons',this)">Macarons</button>
+  </div>
+
+  <div class="grid" id="productGrid">
+
+    <div class="product-card tortas reveal">
+      <div class="product-badge">Top</div>
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600" class="product-img" alt="Chocolate Belga">
+        <div class="product-overlay"></div>
+      </div>
+      <div class="product-info">
+        <h3>Chocolate Belga</h3>
+        <p>Ganache premium, tres capas de bizcocho húmedo</p>
+        <div class="product-footer">
+          <div class="price"><small>S/</small> 95</div>
+          <button class="add-btn" onclick="addToCart('Chocolate Belga',95,this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card tortas reveal">
+      <div class="product-badge">Nuevo</div>
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?q=80&w=600" class="product-img" alt="Red Velvet">
+        <div class="product-overlay"></div>
+      </div>
+      <div class="product-info">
+        <h3>Torta Red Velvet</h3>
+        <p>Crema de queso artesanal, terciopelo rojo intenso</p>
+        <div class="product-footer">
+          <div class="price"><small>S/</small> 110</div>
+          <button class="add-btn" onclick="addToCart('Red Velvet',110,this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card cupcakes reveal">
+      <div class="product-badge">Popular</div>
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=600" class="product-img" alt="Cupcakes Premium">
+        <div class="product-overlay"></div>
+      </div>
+      <div class="product-info">
+        <h3>Cupcakes Premium</h3>
+        <p>Docena con decoraciones exclusivas de temporada</p>
+        <div class="product-footer">
+          <div class="price"><small>S/</small> 35</div>
+          <button class="add-btn" onclick="addToCart('Cupcakes Premium',35,this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card cheesecake reveal">
+      <div class="product-badge">Nuevo</div>
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600" class="product-img" alt="Cheesecake Premium">
+        <div class="product-overlay"></div>
+      </div>
+      <div class="product-info">
+        <h3>Cheesecake Premium</h3>
+        <p>Base de galleta artesanal, frutos del bosque frescos</p>
+        <div class="product-footer">
+          <div class="price"><small>S/</small> 75</div>
+          <button class="add-btn" onclick="addToCart('Cheesecake Premium',75,this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card macarons reveal">
+      <div class="product-badge">Popular</div>
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1510878939963-c20c0c70d6a4?q=80&w=600" class="product-img" alt="Macarons">
+        <div class="product-overlay"></div>
+      </div>
+      <div class="product-info">
+        <h3>Macarons Franceses</h3>
+        <p>Caja de 12 sabores, receta tradicional parisina</p>
+        <div class="product-footer">
+          <div class="price"><small>S/</small> 45</div>
+          <button class="add-btn" onclick="addToCart('Macarons Franceses',45,this)">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros">
+  <div class="about-wrap">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1556243811-ee321f000244?q=80&w=800" alt="Nuestra cocina">
+    </div>
+    <div class="about-content reveal">
+      <div class="section-label">Nuestra historia</div>
+      <h2 class="section-title">Desde<br>1994.</h2>
+      <p>Nuestra pasión por la repostería artesanal nació en una pequeña cocina familiar y hoy seguimos creando postres memorables con el mismo amor y dedicación de siempre.</p>
+      <div class="about-features">
+        <div class="feature-item">
+          <div class="feature-num">01</div>
+          <div class="feature-text">
+            <strong>Ingredientes de origen</strong>
+            Seleccionamos cada ingrediente directamente de productores locales de confianza.
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">02</div>
+          <div class="feature-text">
+            <strong>Recetas heredadas</strong>
+            Más de 30 años perfeccionando fórmulas que se transmiten de generación en generación.
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">03</div>
+          <div class="feature-text">
+            <strong>Diseño exclusivo</strong>
+            Cada pieza es una obra de arte creada a medida para tu ocasión especial.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto">
+  <div class="footer-brand">
+    <span class="logo">Dulce <span>Gracia</span></span>
+    <p>Pastelería artesanal premium en San Isidro. Creando momentos dulces e inolvidables desde 1994.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Visítanos</h4>
+    <p>Calle Las Orquídeas 456<br>San Isidro, Lima</p>
+    <p style="margin-top:16px;">Lun – Sáb: 9am – 8pm<br>Dom: 10am – 6pm</p>
+  </div>
+  <div class="footer-col">
+    <h4>Contacto</h4>
+    <p><a href="tel:+51999999999">(+51) 999 999 999</a></p>
+    <p><a href="mailto:hola@dulcegracia.pe">hola@dulcegracia.pe</a></p>
+    <p style="margin-top:16px;"><a href="#">Instagram</a> · <a href="#">Facebook</a></p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Dulce Gracia · Todos los derechos reservados</p>
+  <p>Hecho con amor en Lima, Perú 🇵🇪</p>
+</div>
+
+<!-- FLOATING CART -->
+<button class="btn-cart" id="openCart">
+  <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+  </svg>
+  <span class="cart-badge" id="cartCount">0</span>
+</button>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/51999999999" class="whatsapp" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Tu carrito</h3>
+    <div class="close-btn" id="closeCart">✕</div>
+  </div>
+  <div class="cart-items" id="cartContent"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="totalPrice">S/ 0</strong>
+    </div>
+    <button class="btn-checkout"><span>Pagar ahora</span></button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
