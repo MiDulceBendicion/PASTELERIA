@@ -114,3 +114,37 @@ function filterProducts(cat, btn) {
 }
 
 render();
+// WHATSAPP CHECKOUT
+function checkoutWhatsApp() {
+  if (!cart.length) {
+    alert('Tu carrito está vacío 🍰');
+    return;
+  }
+  const numero = '51922857548'; // 👈 Cambia por tu número real
+  const items = cart.map((i, idx) => `   ${idx + 1}. *${i.name}* - S/ ${i.price.toFixed(2)}`).join('\n');
+  const total = cart.reduce((s, i) => s + i.price, 0).toFixed(2);
+  const cantidad = cart.length;
+  const now = new Date();
+  const hora = now.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' });
+  const fecha = now.toLocaleDateString('es-PE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const pedidoNum = Math.floor(Math.random() * 9000) + 1000;
+
+  const msg =
+`*DULCE GRACIA* | Pasteleria Premium
+*ORDEN #${pedidoNum}*
+Fecha: ${fecha} - Hora: ${hora}
+------------------------------------
+*PRODUCTOS SOLICITADOS*
+
+${items}
+
+------------------------------------
+Subtotal (${cantidad} item/s): *S/ ${total}*
+*TOTAL A PAGAR: S/ ${total}*
+------------------------------------
+_Solicito confirmacion de disponibilidad y coordinar metodo de entrega._
+
+Gracias! :)`;
+
+  window.open('https://wa.me/' + numero + '?text=' + encodeURIComponent(msg), '_blank');
+}
